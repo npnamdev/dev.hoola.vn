@@ -1,3 +1,6 @@
+
+"use client"
+
 import { AppSidebar } from "@/components/app-sidebar"
 import {
   Breadcrumb,
@@ -14,10 +17,17 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 
+
+import { useState } from "react"
+
 export default function Page() {
+  const [selectedMenu, setSelectedMenu] = useState<string>("");
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <AppSidebar
+        selectedMenu={selectedMenu}
+        onSelectMenu={setSelectedMenu}
+      />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-3">
@@ -44,9 +54,11 @@ export default function Page() {
             <div className="bg-muted/50 aspect-video rounded-xl" />
             <div className="bg-muted/50 aspect-video rounded-xl" />
           </div>
-          <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
+          <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min flex items-center justify-center text-2xl font-bold">
+            {selectedMenu ? selectedMenu : "Chọn menu để hiển thị tên"}
+          </div>
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

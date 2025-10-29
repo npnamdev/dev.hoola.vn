@@ -18,117 +18,89 @@ import {
 // This is sample data.
 const data = {
     navMain: [
+        // {
+        //     title: "Bắt đầu",
+        //     url: "#",
+        //     items: [
+        //         {
+        //             title: "Cài đặt",
+        //             url: "#",
+        //         },
+        //         {
+        //             title: "Cấu trúc dự án",
+        //             url: "#",
+        //         },
+        //     ],
+        // },
         {
-            title: "Getting Started",
+            title: "Kết nối API",
             url: "#",
             items: [
-                {
-                    title: "Installation",
-                    url: "#",
-                },
-                {
-                    title: "Project Structure",
-                    url: "#",
-                },
-            ],
-        },
-        {
-            title: "Kết nối API - Tài khoản",
-            url: "#",
-            items: [
-           { title: "Tài khoản", url: "#" },
-  { title: "Chi tiết tài khoản", url: "#" },
-  { title: "Danh sách tài khoản", url: "#" },
-  { title: "Tìm kiếm tài khoản", url: "#" },
-  { title: "Đếm tài khoản", url: "#" },
-  { title: "Tạo tài khoản", url: "#" },
-  { title: "Tạo nhiều tài khoản", url: "#" },
-  { title: "Tạo token", url: "#" },
-  { title: "Đăng nhập", url: "#" },
-  { title: "Xoá tài khoản", url: "#", isActive: true },
-  { title: "Đặt lại mật khẩu", url: "#" },
+                { title: "Tài khoản", url: "#" },
+                { title: "Chi tiết tài khoản", url: "#" },
+                { title: "Danh sách tài khoản", url: "#" },
+                { title: "Tìm kiếm tài khoản", url: "#" },
+                { title: "Đếm tài khoản", url: "#" },
+                { title: "Tạo tài khoản", url: "#" },
+                { title: "Tạo nhiều tài khoản", url: "#" },
+                { title: "Tạo token", url: "#" },
+                { title: "Đăng nhập", url: "#" },
+                { title: "Xoá tài khoản", url: "#", isActive: true },
+                { title: "Đặt lại mật khẩu", url: "#" },
 
-  // Nhóm: Khoá học
-  { title: "Chi tiết khoá học", url: "#" },
-  { title: "Danh sách khoá học", url: "#" },
-  { title: "Tìm kiếm khoá học", url: "#" },
-  { title: "Đếm khoá học", url: "#" },
-  { title: "Gán khoá học vào tài khoản", url: "#" },
-  { title: "Gán nhiều khoá học", url: "#" },
-  { title: "Gỡ khoá học khỏi tài khoản", url: "#" }
-            ],
-        }
-        ,
-        {
-            title: "API Reference",
-            url: "#",
-            items: [
-                {
-                    title: "Components",
-                    url: "#",
-                },
-                {
-                    title: "File Conventions",
-                    url: "#",
-                },
-                {
-                    title: "Functions",
-                    url: "#",
-                },
-                {
-                    title: "next.config.js Options",
-                    url: "#",
-                },
-                {
-                    title: "CLI",
-                    url: "#",
-                },
-                {
-                    title: "Edge Runtime",
-                    url: "#",
-                },
+                // Nhóm: Khoá học
+                { title: "Chi tiết khoá học", url: "#" },
+                { title: "Danh sách khoá học", url: "#" },
+                { title: "Tìm kiếm khoá học", url: "#" },
+                { title: "Đếm khoá học", url: "#" },
+                { title: "Gán khoá học vào tài khoản", url: "#" },
+                { title: "Gán nhiều khoá học", url: "#" },
+                { title: "Gỡ khoá học khỏi tài khoản", url: "#" }
             ],
         },
-        {
-            title: "Architecture",
-            url: "#",
-            items: [
-                {
-                    title: "Accessibility",
-                    url: "#",
-                },
-                {
-                    title: "Fast Refresh",
-                    url: "#",
-                },
-                {
-                    title: "Next.js Compiler",
-                    url: "#",
-                },
-                {
-                    title: "Supported Browsers",
-                    url: "#",
-                },
-                {
-                    title: "Turbopack",
-                    url: "#",
-                },
-            ],
-        },
-        {
-            title: "Community",
-            url: "#",
-            items: [
-                {
-                    title: "Contribution Guide",
-                    url: "#",
-                },
-            ],
-        },
+        // {
+        //     title: "Architecture",
+        //     url: "#",
+        //     items: [
+        //         {
+        //             title: "Accessibility",
+        //             url: "#",
+        //         },
+        //         {
+        //             title: "Fast Refresh",
+        //             url: "#",
+        //         },
+        //         {
+        //             title: "Next.js Compiler",
+        //             url: "#",
+        //         },
+        //         {
+        //             title: "Supported Browsers",
+        //             url: "#",
+        //         },
+        //         {
+        //             title: "Turbopack",
+        //             url: "#",
+        //         },
+        //     ],
+        // },
+        // {
+        //     title: "Community",
+        //     url: "#",
+        //     items: [
+        //         {
+        //             title: "Contribution Guide",
+        //             url: "#",
+        //         },
+        //     ],
+        // },
     ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({ onSelectMenu, selectedMenu, ...props }: React.ComponentProps<typeof Sidebar> & {
+    onSelectMenu?: (menuName: string) => void;
+    selectedMenu?: string;
+}) {
     return (
         <Sidebar {...props}>
             <SidebarHeader>
@@ -153,17 +125,25 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     <SidebarMenu>
                         {data.navMain.map((item) => (
                             <SidebarMenuItem key={item.title}>
-                                <SidebarMenuButton asChild>
+                                <SidebarMenuButton
+                                    asChild
+                                    isActive={selectedMenu === item.title}
+                                    onClick={() => onSelectMenu?.(item.title)}
+                                >
                                     <a href={item.url} className="font-medium">
                                         {item.title}
                                     </a>
                                 </SidebarMenuButton>
                                 {item.items?.length ? (
                                     <SidebarMenuSub>
-                                        {item.items.map((item) => (
-                                            <SidebarMenuSubItem key={item.title}>
-                                                <SidebarMenuSubButton asChild isActive={item.isActive}>
-                                                    <a href={item.url}>{item.title}</a>
+                                        {item.items.map((subItem) => (
+                                            <SidebarMenuSubItem key={subItem.title}>
+                                                <SidebarMenuSubButton
+                                                    asChild
+                                                    isActive={selectedMenu === subItem.title}
+                                                    onClick={() => onSelectMenu?.(subItem.title)}
+                                                >
+                                                    <a href={subItem.url}>{subItem.title}</a>
                                                 </SidebarMenuSubButton>
                                             </SidebarMenuSubItem>
                                         ))}
@@ -176,5 +156,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarContent>
             <SidebarRail />
         </Sidebar>
-    )
+    );
 }

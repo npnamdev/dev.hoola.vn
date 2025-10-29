@@ -12,8 +12,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Wedhook - Sign in with Google",
-  description: "Welcome to Wedhook",
+  title: "Hoola API - The Ultimate API Management Platform",
+  description: "Welcome to Hoola API",
 };
 
 export default function RootLayout({
