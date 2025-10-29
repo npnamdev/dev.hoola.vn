@@ -33,60 +33,32 @@ const data = {
             ],
         },
         {
-            title: "Building Your Application",
+            title: "Kết nối API - Tài khoản",
             url: "#",
             items: [
-                {
-                    title: "Routing",
-                    url: "#",
-                },
-                {
-                    title: "Data Fetching",
-                    url: "#",
-                    isActive: true,
-                },
-                {
-                    title: "Rendering",
-                    url: "#",
-                },
-                {
-                    title: "Caching",
-                    url: "#",
-                },
-                {
-                    title: "Styling",
-                    url: "#",
-                },
-                {
-                    title: "Optimizing",
-                    url: "#",
-                },
-                {
-                    title: "Configuring",
-                    url: "#",
-                },
-                {
-                    title: "Testing",
-                    url: "#",
-                },
-                {
-                    title: "Authentication",
-                    url: "#",
-                },
-                {
-                    title: "Deploying",
-                    url: "#",
-                },
-                {
-                    title: "Upgrading",
-                    url: "#",
-                },
-                {
-                    title: "Examples",
-                    url: "#",
-                },
+           { title: "Tài khoản", url: "#" },
+  { title: "Chi tiết tài khoản", url: "#" },
+  { title: "Danh sách tài khoản", url: "#" },
+  { title: "Tìm kiếm tài khoản", url: "#" },
+  { title: "Đếm tài khoản", url: "#" },
+  { title: "Tạo tài khoản", url: "#" },
+  { title: "Tạo nhiều tài khoản", url: "#" },
+  { title: "Tạo token", url: "#" },
+  { title: "Đăng nhập", url: "#" },
+  { title: "Xoá tài khoản", url: "#", isActive: true },
+  { title: "Đặt lại mật khẩu", url: "#" },
+
+  // Nhóm: Khoá học
+  { title: "Chi tiết khoá học", url: "#" },
+  { title: "Danh sách khoá học", url: "#" },
+  { title: "Tìm kiếm khoá học", url: "#" },
+  { title: "Đếm khoá học", url: "#" },
+  { title: "Gán khoá học vào tài khoản", url: "#" },
+  { title: "Gán nhiều khoá học", url: "#" },
+  { title: "Gỡ khoá học khỏi tài khoản", url: "#" }
             ],
-        },
+        }
+        ,
         {
             title: "API Reference",
             url: "#",
