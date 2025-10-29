@@ -18,10 +18,68 @@ import {
 } from "@/components/ui/sidebar"
 
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
+
 
 export default function Page() {
   const [selectedMenu, setSelectedMenu] = useState<string>("");
+
+  // Menu data giống trong AppSidebar
+  const menuData = [
+    {
+      title: "Kết nối API",
+      items: [
+        "Tài khoản",
+        "Chi tiết tài khoản",
+        "Danh sách tài khoản",
+        "Tìm kiếm tài khoản",
+        "Đếm tài khoản",
+        "Tạo tài khoản",
+        "Tạo nhiều tài khoản",
+        "Tạo token",
+        "Đăng nhập",
+        "Xoá tài khoản",
+        "Đặt lại mật khẩu",
+        "Chi tiết khoá học",
+        "Danh sách khoá học",
+        "Tìm kiếm khoá học",
+        "Đếm khoá học",
+        "Gán khoá học vào tài khoản",
+        "Gán nhiều khoá học",
+        "Gỡ khoá học khỏi tài khoản"
+      ]
+    },
+    {
+      title: "Architecture",
+      items: [
+        "Accessibility",
+        "Fast Refresh",
+        "Next.js Compiler",
+        "Supported Browsers",
+        "Turbopack"
+      ]
+    },
+    {
+      title: "Community",
+      items: ["Contribution Guide"]
+    }
+  ];
+
+  // Xác định breadcrumb động
+  const breadcrumb = useMemo(() => {
+    if (!selectedMenu) return null;
+    // Tìm parent nếu là submenu
+    const parent = menuData.find((m) => m.title === selectedMenu || m.items.includes(selectedMenu));
+    if (!parent) return null;
+    if (parent.title === selectedMenu) {
+      // Chọn menu cha
+      return [parent.title];
+    } else {
+      // Chọn submenu
+      return [parent.title, selectedMenu];
+    }
+  }, [selectedMenu]);
+
   return (
     <SidebarProvider>
       <AppSidebar
@@ -37,13 +95,25 @@ export default function Page() {
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="#">
-                    Building Your Application
+                    Home
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                </BreadcrumbItem>
+                {breadcrumb && breadcrumb.length > 0 && (
+                  <>
+                    <BreadcrumbSeparator className="hidden md:block" />
+                    <BreadcrumbItem>
+                      <BreadcrumbPage>{breadcrumb[0]}</BreadcrumbPage>
+                    </BreadcrumbItem>
+                    {breadcrumb[1] && (
+                      <>
+                        <BreadcrumbSeparator className="hidden md:block" />
+                        <BreadcrumbItem>
+                          <BreadcrumbPage>{breadcrumb[1]}</BreadcrumbPage>
+                        </BreadcrumbItem>
+                      </>
+                    )}
+                  </>
+                )}
               </BreadcrumbList>
             </Breadcrumb>
           </div>
