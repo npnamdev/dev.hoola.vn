@@ -20,6 +20,7 @@ import {
 
 import { useState, useMemo } from "react"
 import ProfileHeader from "@/components/profile-header"
+import { Button } from "@/components/ui/button"
 
 
 export default function Page() {
@@ -88,7 +89,7 @@ export default function Page() {
         onSelectMenu={setSelectedMenu}
       />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b justify-between px-3">
+        <header className="flex h-16 shrink-0 items-center gap-2 border-b justify-between px-5">
           <div className="flex items-center gap-2">
             <SidebarTrigger />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -119,7 +120,9 @@ export default function Page() {
             </Breadcrumb>
           </div>
           <div className="flex items-center">
-            <ProfileHeader />
+            <Button >
+              <span className="text-13">Dùng thử </span>
+            </Button>
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
