@@ -27,7 +27,10 @@ export default function ProfileHeader() {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://dev.hoola.vn/manage/api/users/get-me?token=wMgT7sqyBcEF77BT9rky3ka6kiSerYb0jSqmYTcWNaz"
+          "/manage/api/users/get-me?token=wMgT7sqyBcEF77BT9rky3ka6kiSerYb0jSqmYTcWNaz",
+          {
+            credentials: 'include', // Nếu backend cần cookie xác thực
+          }
         );
         const data = await res.json();
         if (data && data.user) {
