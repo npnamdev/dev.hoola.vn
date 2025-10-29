@@ -36,64 +36,29 @@ const data = {
             title: "Kết nối API",
             url: "#",
             items: [
-                { title: "Tài khoản", url: "#" },
-                { title: "Chi tiết tài khoản", url: "#" },
-                { title: "Danh sách tài khoản", url: "#" },
-                { title: "Tìm kiếm tài khoản", url: "#" },
-                { title: "Đếm tài khoản", url: "#" },
-                { title: "Tạo tài khoản", url: "#" },
-                { title: "Tạo nhiều tài khoản", url: "#" },
-                { title: "Tạo token", url: "#" },
-                { title: "Đăng nhập", url: "#" },
-                { title: "Xoá tài khoản", url: "#", isActive: true },
-                { title: "Đặt lại mật khẩu", url: "#" },
+                // Nhóm: Tài khoản
+                { title: "Tài khoản", url: "/api-connection/account" },
+                { title: "Chi tiết tài khoản", url: "/api-connection/get-account" },
+                { title: "Danh sách tài khoản", url: "/api-connection/get-accounts" },
+                { title: "Tìm kiếm tài khoản", url: "/api-connection/search-account" },
+                { title: "Đếm tài khoản", url: "/api-connection/count-accounts" },
+                { title: "Tạo tài khoản", url: "/api-connection/create-account" },
+                { title: "Tạo nhiều tài khoản", url: "/api-connection/create-many-accounts" },
+                { title: "Tạo token", url: "/api-connection/create-token" },
+                { title: "Đăng nhập", url: "/api-connection/login" },
+                { title: "Xoá tài khoản", url: "/api-connection/delete-account", isActive: true },
+                { title: "Đặt lại mật khẩu", url: "/api-connection/reset-password" },
 
                 // Nhóm: Khoá học
-                { title: "Chi tiết khoá học", url: "#" },
-                { title: "Danh sách khoá học", url: "#" },
-                { title: "Tìm kiếm khoá học", url: "#" },
-                { title: "Đếm khoá học", url: "#" },
-                { title: "Gán khoá học vào tài khoản", url: "#" },
-                { title: "Gán nhiều khoá học", url: "#" },
-                { title: "Gỡ khoá học khỏi tài khoản", url: "#" }
+                { title: "Chi tiết khoá học", url: "/api-connection/get-course" },
+                { title: "Danh sách khoá học", url: "/api-connection/get-courses" },
+                { title: "Tìm kiếm khoá học", url: "/api-connection/search-course" },
+                { title: "Đếm khoá học", url: "/api-connection/count-courses" },
+                { title: "Gán khoá học vào tài khoản", url: "/api-connection/assign-course" },
+                { title: "Gán nhiều khoá học", url: "/api-connection/assign-many-courses" },
+                { title: "Gỡ khoá học khỏi tài khoản", url: "/api-connection/remove-course" },
             ],
         },
-        // {
-        //     title: "Architecture",
-        //     url: "#",
-        //     items: [
-        //         {
-        //             title: "Accessibility",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Fast Refresh",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Next.js Compiler",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Supported Browsers",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Turbopack",
-        //             url: "#",
-        //         },
-        //     ],
-        // },
-        // {
-        //     title: "Community",
-        //     url: "#",
-        //     items: [
-        //         {
-        //             title: "Contribution Guide",
-        //             url: "#",
-        //         },
-        //     ],
-        // },
     ],
 }
 
