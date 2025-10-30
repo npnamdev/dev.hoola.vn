@@ -17,6 +17,7 @@ SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("jsx", jsx);
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Copy, Check } from "lucide-react";
 
 interface CodePreviewProps {
@@ -39,8 +40,8 @@ export default function CodePreview({
     };
 
     return (
-        <div className="w-full bg-white text-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-200">
-            <div className="flex justify-between items-center px-4 py-1 bg-slate-100 border-b text-13 border-slate-200">
+        <Card className="w-full bg-white text-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-200 gap-0 py-0">
+            <CardHeader className="flex flex-row justify-between items-center px-4 h-[45px] py-5 bg-slate-100 border-b text-13 border-slate-200">
                 <span className="text-13 font-medium">{title}</span>
                 <Button
                     size="sm"
@@ -58,19 +59,20 @@ export default function CodePreview({
                         </div>
                     )}
                 </Button>
-            </div>
-
-            <SyntaxHighlighter
-                language={language}
-                style={oneLight}
-                customStyle={{
-                    margin: 0,
-                    padding: "1rem",
-                    fontSize: "0.9rem",
-                }}
-            >
-                {code.trim()}
-            </SyntaxHighlighter>
-        </div>
+            </CardHeader>
+            <CardContent className="p-0">
+                <SyntaxHighlighter
+                    language={language}
+                    style={oneLight}
+                    customStyle={{
+                        margin: 0,
+                        padding: "1rem",
+                        fontSize: "0.9rem",
+                    }}
+                >
+                    {code.trim()}
+                </SyntaxHighlighter>
+            </CardContent>
+        </Card>
     );
 }

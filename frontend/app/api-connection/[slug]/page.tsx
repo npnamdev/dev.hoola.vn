@@ -11,7 +11,7 @@ curl -X POST /api/users -H "Content-Type: application/json" -d '{
 `;
 
   return (
-    <div className="grid grid-cols-[1fr_260px] gap-4">
+    <div className="">
       <CodePreview title="curl" language="bash" code={curlExample} />
     </div>
   );
