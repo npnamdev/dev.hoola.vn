@@ -1,3 +1,5 @@
+
+import Link from "next/link"
 import * as React from "react"
 import { GalleryVerticalEnd } from "lucide-react"
 
@@ -48,8 +50,6 @@ const data = {
                 { title: "Đăng nhập", url: "/api-connection/login" },
                 { title: "Xoá tài khoản", url: "/api-connection/delete-account", isActive: true },
                 { title: "Đặt lại mật khẩu", url: "/api-connection/reset-password" },
-
-                // Nhóm: Khoá học
                 { title: "Chi tiết khoá học", url: "/api-connection/get-course" },
                 { title: "Danh sách khoá học", url: "/api-connection/get-courses" },
                 { title: "Tìm kiếm khoá học", url: "/api-connection/search-course" },
@@ -72,15 +72,15 @@ export function AppSidebar({ onSelectMenu, selectedMenu, ...props }: React.Compo
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <a href="#">
+                            <Link href="#">
                                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                                     <GalleryVerticalEnd className="size-4" />
                                 </div>
                                 <div className="flex flex-col gap-0.5 leading-none">
                                     <span className="font-medium">Documentation</span>
-                                    <span className="">v1.0.0</span>
+                                    <span className="text-xs">v1.0.0</span>
                                 </div>
-                            </a>
+                            </Link>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>
@@ -95,9 +95,9 @@ export function AppSidebar({ onSelectMenu, selectedMenu, ...props }: React.Compo
                                     isActive={selectedMenu === item.title}
                                     onClick={() => onSelectMenu?.(item.title)}
                                 >
-                                    <a href={item.url} className="font-medium">
+                                    <Link href={item.url} className="font-medium">
                                         {item.title}
-                                    </a>
+                                    </Link>
                                 </SidebarMenuButton>
                                 {item.items?.length ? (
                                     <SidebarMenuSub>
@@ -108,7 +108,7 @@ export function AppSidebar({ onSelectMenu, selectedMenu, ...props }: React.Compo
                                                     isActive={selectedMenu === subItem.title}
                                                     onClick={() => onSelectMenu?.(subItem.title)}
                                                 >
-                                                    <a href={subItem.url}>{subItem.title}</a>
+                                                    <Link href={subItem.url}>{subItem.title}</Link>
                                                 </SidebarMenuSubButton>
                                             </SidebarMenuSubItem>
                                         ))}
