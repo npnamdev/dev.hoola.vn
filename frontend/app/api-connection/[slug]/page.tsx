@@ -1,11 +1,12 @@
 // app/api-connection/[slug]/page.tsx
-interface PageProps {
+
+interface ApiConnectionPageProps {
   params: {
     slug: string;
   };
 }
 
-export default function ApiConnectionPage({ params }: PageProps) {
+export default function ApiConnectionPage({ params }: ApiConnectionPageProps) {
   const { slug } = params;
 
   return (
